@@ -1,0 +1,36 @@
+﻿@model MyMovies.Models.Movie
+
+@{
+    ViewData["Title"] = "Movie Details";
+}
+
+<div class="mb-4">
+    <h1 class="display-6 fw-bold" style="color: var(--brand-red);">@Model.Title</h1>
+    <p class="text-secondary">Detailed view</p>
+</div>
+
+<div class="card bg-dark text-white border-secondary mb-4" style="max-width: 600px;">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-4 text-secondary">Genre</dt>
+            <dd class="col-sm-8">@Model.Genre</dd>
+
+            <dt class="col-sm-4 text-secondary">Rating</dt>
+            <dd class="col-sm-8"><span class="badge bg-secondary">@Model.Rating</span></dd>
+
+            <dt class="col-sm-4 text-secondary">Run Time</dt>
+            <dd class="col-sm-8">@Model.RunTime</dd>
+
+            <dt class="col-sm-4 text-secondary">Release Date</dt>
+            <dd class="col-sm-8">@Model.ReleaseDate.ToString("MMMM dd, yyyy")</dd>
+
+            <dt class="col-sm-4 text-secondary">Synopsis</dt>
+            <dd class="col-sm-8">@Model.Synopsis</dd>
+        </dl>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary me-2">Edit</a>
+    <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+</div>

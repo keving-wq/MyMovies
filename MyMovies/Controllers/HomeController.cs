@@ -5,11 +5,10 @@ namespace MyMovies.Controllers
 {
     public class HomeController : Controller
     {
-        // Mock dataset balancing beginner readable logic with structured data access
-        private static List<Movies> _movies = new()
+        private static List<Movie> _movies = new()
         {
-            new Movies { Id = 1, Title = "Inception", Genre = "Sci-Fi", ReleaseDate = new DateTime(2010, 7, 16), Director = "Christopher Nolan", Description = "A thief who steals corporate secrets through dream-sharing technology." },
-            new Movies { Id = 2, Title = "The Dark Knight", Genre = "Action", ReleaseDate = new DateTime(2008, 7, 18), Director = "Christopher Nolan", Description = "Batman faces the Joker in Gotham City." }
+            new Movie { Id = 1, Title = "Inception", Genre = "Sci-Fi", RunTime = "2h 28m", Synopsis = "A thief steals secrets via dream-sharing.", Rating = "PG-13" },
+            new Movie { Id = 2, Title = "The Dark Knight", Genre = "Action", RunTime = "2h 32m", Synopsis = "Batman faces the Joker.", Rating = "PG-13" }
         };
 
         public IActionResult Index()
@@ -24,15 +23,15 @@ namespace MyMovies.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Movies movies)
+        public IActionResult Create(Movie movie)
         {
             if (ModelState.IsValid)
             {
-                movies.Id = _movies.Max(m => m.Id) + 1;
-                _movies.Add(movies);
+                movie.Id = _movies.Any() ? _movies.Max(m => m.Id) + 1 : 1;
+                _movies.Add(movie);
                 return RedirectToAction(nameof(Index));
             }
-            return View(movies);
+            return View(movie);
         }
     }
 }

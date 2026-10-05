@@ -1,31 +1,53 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+:root {
+    --brand-red: #FA320A;
+    --dark-bg: #121212;
+    --card-bg: #1E1E1E;
+    --nav-bg: #181818;
+    --text-color: #FFFFFF;
 }
 
 body {
-  margin-bottom: 60px;
+    background-color: var(--dark-bg) !important;
+    color: var(--text-color) !important;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+.navbar-custom {
+    background-color: var(--nav-bg) !important;
+    border-bottom: 2px solid var(--brand-red) !important;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+    .navbar-custom .navbar-brand {
+        color: var(--brand-red) !important;
+        font-weight: bold;
+    }
+
+    .navbar-custom .nav-link {
+        color: #CCCCCC !important;
+    }
+
+.table {
+    color: #FFFFFF !important;
+    background-color: var(--card-bg) !important;
 }
+
+    .table th {
+        background-color: #282828 !important;
+        color: var(--brand-red) !important;
+        border-bottom: 2px solid #333 !important;
+    }
+
+    .table td {
+        background-color: var(--card-bg) !important;
+        color: #FFFFFF !important;
+        border-bottom: 1px solid #333 !important;
+    }
+
+.btn-primary {
+    background-color: var(--brand-red) !important;
+    border-color: var(--brand-red) !important;
+}
+
+    .btn-primary:hover {
+        background-color: #D12200 !important;
+        border-color: #D12200 !important;
+    }

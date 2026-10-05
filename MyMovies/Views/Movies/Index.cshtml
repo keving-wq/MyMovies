@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MyMovies.Models.Movie>
+
+@{
+    ViewData["Title"] = "Movie Directory";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1 class="display-6 fw-bold mb-0" style="color: var(--brand-red);">Movies Directory</h1>
+        <p class="text-secondary mb-0">Sorted by newest release date</p>
+    </div>
+    <a asp-action="Create" class="btn btn-primary">+ Add New Movie</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table align-middle">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Rating</th>
+                <th>Run Time</th>
+                <th>Release Date</th>
+                <th>Synopsis</th>
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="fw-bold">@item.Title</td>
+                    <td>@item.Genre</td>
+                    <td>@item.Rating</td>
+                    <td>@item.RunTime</td>
+                    <td>@item.ReleaseDate.ToString("MMM dd, yyyy")</td>
+                    <td>@item.Synopsis</td>
+                    <td class="text-end">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-light me-1">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info me-1">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
