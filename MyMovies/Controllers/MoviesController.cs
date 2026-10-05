@@ -23,7 +23,6 @@ namespace MyMovies.Controllers
             return View(movies);
         }
 
-        // GET: Movies/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
@@ -34,13 +33,12 @@ namespace MyMovies.Controllers
             return View(movie);
         }
 
-        // GET: Movies/Create
+        
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Movies/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Synopsis,Genre,Rating,RunTime,ReleaseDate")] Movie movie)
@@ -54,7 +52,6 @@ namespace MyMovies.Controllers
             return View(movie);
         }
 
-        // GET: Movies/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -65,7 +62,6 @@ namespace MyMovies.Controllers
             return View(movie);
         }
 
-        // POST: Movies/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Synopsis,Genre,Rating,RunTime,ReleaseDate")] Movie movie)
@@ -91,7 +87,6 @@ namespace MyMovies.Controllers
             return View(movie);
         }
 
-        // GET: Movies/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -102,7 +97,6 @@ namespace MyMovies.Controllers
             return View(movie);
         }
 
-        // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
