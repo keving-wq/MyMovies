@@ -14,7 +14,7 @@ namespace MyMovies.Controllers
             _context = context;
         }
 
-        // GET: Movies (Sorted by Release Date)
+        // GET Movies Sorted by Release Date
         public async Task<IActionResult> Index()
         {
             var movies = await _context.Movies
@@ -33,7 +33,7 @@ namespace MyMovies.Controllers
             return View(movie);
         }
 
-        
+
         public IActionResult Create()
         {
             return View();
